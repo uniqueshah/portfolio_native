@@ -38,13 +38,13 @@ export default function About() {
                   Who I Am
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                  I'm a passionate Mobile Application Developer with a love for creating
+                  I&apos;m a passionate Mobile Application Developer with a love for creating
                   innovative mobile/web solutions. With expertise in modern JavaScript
                   frameworks and a keen eye for design, I bring ideas to life
                   through clean, efficient code.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  When I'm not coding, you can find me exploring new technologies,
+                  When I&apos;m not coding, you can find me exploring new technologies,
                   contributing to open-source projects, or sharing knowledge with
                   the developer community.
                 </p>

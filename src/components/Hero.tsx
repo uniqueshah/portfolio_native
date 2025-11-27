@@ -21,7 +21,7 @@ export default function Hero() {
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Hi, I'm{" "}
+                Hi, I&apos;m{" "}
               </span>
               <span className="text-white">Shahnazar</span>
             </h1>
