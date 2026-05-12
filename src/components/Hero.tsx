@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Home hero: full-viewport intro anchored at `#home`.
+ * Uses staggered Framer Motion fades for headline, role, bio, socials, then scroll CTA.
+ */
+
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
@@ -9,11 +14,12 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Animated background gradient */}
+      {/* Decorative layer behind content; pulse draws subtle attention without blocking text */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20 animate-pulse" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
+          {/* Headline: gradient greeting + solid name for contrast */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,6 +33,7 @@ export default function Hero() {
             </h1>
           </motion.div>
 
+          {/* Role line — delay 0.2s after headline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -36,6 +43,7 @@ export default function Hero() {
             React Native Developer
           </motion.p>
 
+          {/* Short positioning / value prop */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -46,6 +54,7 @@ export default function Hero() {
             technologies. Passionate about creating exceptional user experiences.
           </motion.p>
 
+          {/* GitHub, LinkedIn, email — external except mailto */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -82,6 +91,7 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
+          {/* In-page next step: smooth-scroll target is the About section */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

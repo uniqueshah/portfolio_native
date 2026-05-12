@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * About section (`#about`): intro copy in a highlighted card plus a stat grid.
+ * Motion uses `whileInView` + `viewport.once` so animations run once when scrolled into view.
+ */
+
 import { motion } from "framer-motion";
 
 export default function About() {
@@ -16,6 +21,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          {/* Title + accent rule */}
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
               About Me
@@ -25,6 +31,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Narrative: glow frame + bordered content block */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -52,6 +59,7 @@ export default function About() {
             </div>
           </motion.div>
 
+          {/* 2×2 metric tiles with per-tile entrance delay */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -59,6 +67,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 gap-4"
           >
+            {/* Stat labels and values — edit the array below to change tiles */}
             {[
               { label: "Years of Experience", value: "4+" },
               { label: "Projects Completed", value: "3+" },

@@ -1,7 +1,13 @@
 "use client";
 
+/**
+ * Skills section (`#skills`): self-reported proficiency bars plus a pill “tech stack” row.
+ * Bar width animates from 0 to `level` when the row enters the viewport (`whileInView`).
+ */
+
 import { motion } from "framer-motion";
 
+/** Display name, bar width %, and Tailwind gradient tokens for the fill */
 const skills = [
   { name: "React Native", level: 90, color: "from-blue-400 to-blue-600" },
   { name: "React", level: 70, color: "from-gray-400 to-gray-600" },
@@ -27,6 +33,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          {/* Section heading + accent */}
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
               Skills
@@ -35,6 +42,7 @@ export default function Skills() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-600 mx-auto" />
         </motion.div>
 
+        {/* One card per skill: label, percentage, animated gradient track */}
         <div className="grid md:grid-cols-2 gap-8">
           {skills.map((skill, index) => (
             <motion.div
@@ -50,6 +58,7 @@ export default function Skills() {
                 <span className="text-gray-400 text-sm">{skill.level}%</span>
               </div>
               <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+                {/* Fill grows after the card fades in (extra delay per row index) */}
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.level}%` }}
@@ -62,7 +71,7 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Tech Stack Icons */}
+        {/* Secondary list: tools and platforms as chips (separate from % bars above) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,6 +83,7 @@ export default function Skills() {
             Tech Stack
           </h3>
           <div className="flex flex-wrap justify-center gap-6">
+            {/* Names only — swap for icons later without changing the stagger loop */}
             {[
               "React Native",
               "React",

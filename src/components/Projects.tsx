@@ -1,8 +1,13 @@
 "use client";
 
+/**
+ * Projects section (`#projects`): portfolio cards from static data.
+ * Each card: gradient placeholder hero, tech pills, optional App Store / Play Store links (empty string = no valid target).
+ */
+
 import { motion } from "framer-motion";
 
-// App Store Icon Component
+/** Inline SVG Apple mark for store links (avoids extra image assets) */
 const AppStoreIcon = ({ size = 20 }: { size?: number }) => (
   <svg
     width={size}
@@ -15,7 +20,7 @@ const AppStoreIcon = ({ size = 20 }: { size?: number }) => (
   </svg>
 );
 
-// Play Store Icon Component
+/** Inline SVG Google Play triangle mark */
 const PlayStoreIcon = ({ size = 20 }: { size?: number }) => (
   <svg
     width={size}
@@ -28,6 +33,7 @@ const PlayStoreIcon = ({ size = 20 }: { size?: number }) => (
   </svg>
 );
 
+/** Featured work: titles, copy, stack, and store URLs rendered as cards below */
 const projects = [
   {
     title: "Floweraura Application",
@@ -80,6 +86,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          {/* Section title + underline */}
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
               Projects
@@ -98,6 +105,7 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-blue-500 transition-all duration-300"
             >
+              {/* Placeholder “screenshot” strip — real apps could swap in `next/image` */}
               <div className={`h-48 ${project.image} relative overflow-hidden`}>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               </div>

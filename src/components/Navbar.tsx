@@ -1,9 +1,15 @@
 "use client";
 
+/**
+ * Fixed top navigation: in-page hash links match section `id`s on the home page.
+ * Desktop shows inline links; small screens use a collapsible panel with exit animations.
+ */
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+/** Labels and targets for both desktop and mobile menus */
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -17,6 +23,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    /** Toggle frosted bar once user leaves the top of the page */
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -34,6 +41,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Wordmark back to hero */}
           <motion.a
             href="#home"
             className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
@@ -42,7 +50,7 @@ export default function Navbar() {
             Portfolio
           </motion.a>
 
-          {/* Desktop Menu */}
+          {/* md+: horizontal links with underline-on-hover */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <a
@@ -56,7 +64,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Toggles AnimatePresence panel below */}
           <button
             className="md:hidden text-gray-300 hover:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -66,7 +74,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Full-width dropdown; links close the menu after navigation */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
